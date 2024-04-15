@@ -14,7 +14,7 @@ const errMessages = {
     "errLastName": "Last Name cannot be blank.",
     "errEmail": "When box is checked, email cannot be blank.",
     "errEmailNotValid": "Email is not valid.",
-    "errPhoneNumber": "When box is checked, phone cannot be blank.",
+    "errPhoneNumber": "When box is checked, phone must be 212-555-4444 format",
     "errPhoneNumberNotValid": "Phone Number must be 212-555-4444 format.",
     "errSupervisor": "You must select a supervisor.",
     "errSupervisorFetch": "Error loading supervisors.",
@@ -190,20 +190,24 @@ function ValidateFormData(jsonIn) {
         errLastName.innerHTML = errMessages.errLastName;
     }
 
+    // if email checkbox checked && email text field is blank, send error
     if (jsonIn.checkEmail && (jsonIn.email === "" || jsonIn.email === null)) {
         errMsg += errMessages.errEmail + "\r\n";
         errEmail.innerHTML = errMessages.errEmail;
     }
-    if (jsonIn.checkEmail && !IsValidEmail(jsonIn.email)) {
+    //if email text is not empty, send error if email is not valid
+    if ((jsonIn.email.length > 0) && (!IsValidEmail(jsonIn.email))) {
         errMsg += errMessages.errEmailNotValid + "\r\n";
         errEmail.innerHTML = errMessages.errEmailNotValid;
     }
 
+    // if phonenumber checkbox checked && phonenumber text field is blank, send error
     if (jsonIn.checkPhoneNumber && (jsonIn.phoneNumber === "" || jsonIn.phoneNumber === null)) {
         errMsg += errMessages.errPhoneNumber + "\r\n";
         errPhoneNumber.innerHTML = errMessages.errPhoneNumber;
     }
-    if (jsonIn.checkPhoneNumber && !IsValidPhoneNumber(jsonIn.phoneNumber)) {
+    //if PhoneNumber text is not empty, send error if PhoneNumber is not valid
+    if ((jsonIn.phoneNumber.length > 0) && (!IsValidPhoneNumber(jsonIn.phoneNumber))) {
         errMsg += errMessages.errPhoneNumberNotValid + "\r\n";
         errPhoneNumber.innerHTML = errMessages.errPhoneNumberNotValid;
     }
