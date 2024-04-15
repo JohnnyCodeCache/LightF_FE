@@ -28,3 +28,8 @@
 	DONE! - get rid of json alerts
 
 	DONE! - display message from API, then clear the form
+
+### Notes:
+    
+URI's to the API this relies on are hard coded in index.js.  They will have to be changed before 
+launch when final endpoint URL's are established.
