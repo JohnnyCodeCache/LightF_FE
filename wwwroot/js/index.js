@@ -1,9 +1,12 @@
 'use strict';
 
-// Specify the URL of the JSON endpoint to get supervisors
-const urlToGetSupervisors = 'https://localhost:32774/api/supervisors';
+// Specify the URL of the JSON endpoint to get supervisors from local test server
+//const urlToGetSupervisors = 'https://localhost:32774/api/supervisors';
+//const urlToSubmitData = 'https://localhost:32774/api/submit';
 
-const urlToSubmitData = 'https://localhost:32774/api/submit';
+// Specify the URL of the JSON endpoint to get supervisors from AWS API
+const urlToGetSupervisors = 'http://3.137.205.32:8080/api/supervisors';
+const urlToSubmitData = 'http://3.137.205.32:8080/api/submit'
 
 
 // free test api to make sure client works
